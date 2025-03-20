@@ -105,11 +105,11 @@ This task is for the installation of Management Agent in a non-OCI host(e.g. on-
   </copy>
   ```
 
-3. Navigate to the common directory and check that the **Agent Installer** is uncompressed to the same directory as the **configuration file**. Once verified, run the `installJMSAgent.sh` script using the following command.
+3. Navigate to the common directory and check that the **Agent Installer** is uncompressed to the same directory as the **configuration file**. Once verified, change the directory to jmsInstaller and run the `setupJMS.sh` script using the following command.
 
   ```
   <copy>
-  sudo ./installJMSAgent.sh
+  sudo ./setupJMS.sh
   </copy>
   ```
 

@@ -196,37 +196,29 @@ You have now created a simple Java application.
 
 ## Task 3: Create a Docker image with Oracle JDK
 
-This section will provide guidance on creating a Docker image running a Oracle JDK within the compute instance. If you already have a Docker image with Oracle JDK on it, you may pull your image into the compute instance, skip this task and proceed with Task 4.
+This section will provide guidance on creating a Docker image running a Oracle JDK within the compute instance.
 
 > **Note:** Currently, only containers with Oracle JDKs are able to be detected by the Java Usage Tracker.
 
 1. Ensure that you are already in your compute instance. If not, perform an SSH login.
 
-2. Install Git in your compute instance.
+2. In the Oracle Cloud Console, open the navigation menu, click **Observability & Management**, and then click **Java Download** under **Java Management**.
+
+  ![image of console navigation to java download](images/console-navigation-java-download.png)
+
+3. Select a JDK to download.
+
+  ![image of Java Releases page](images/java-releases-page.png)
+
+4. Detailed information of the JDK will be displayed. Click **Download JDK docker file**
+
+  ![image of artifact download page](images/JDK_Dockerfile.png)
+
+5. Copy the Dockerfile to the OddNumbers folder by running the following.
 
     ```
     <copy>
-    cd ~
-    </copy>
-    ```
-
-    ```
-    <copy>
-    sudo yum install git
-    </copy>
-    ```
-
-3. Clone the Oracle Docker Images repository from GitHub into your compute instance and copy the Dockerfile to the OddNumbers folder by running the following.
-
-    ```
-    <copy>
-    git clone https://github.com/oracle/docker-images.git
-    </copy>
-    ```
-
-    ```
-    <copy>
-    cp docker-images/OracleJava/17/Dockerfile ~/OddNumbers
+    cp Dockerfile ~/OddNumbers
     </copy>
     ```
 
@@ -247,7 +239,7 @@ This section will provide guidance on creating a Docker image running a Oracle J
   ![image of dockerfile listed](images/dockerfile-check.png)
 
 <!--  -->
-4. Edit the Dockerfile to include our jar file in the build by running these commands.
+6. Edit the Dockerfile to include our jar file in the build by running these commands.
 
     ```
     <copy>
@@ -268,7 +260,7 @@ This section will provide guidance on creating a Docker image running a Oracle J
 
   * When done, save and exit the Nano text editor by pressing **CTRL+x** then **y** and then **ENTER**.
 <!--  -->
-5. In the OddNumbers folder, run the following command for Docker to build the image. This step may take a few minutes.
+7. In the OddNumbers folder, run the following command for Docker to build the image. This step may take a few minutes.
 
     ```
     <copy>
@@ -276,7 +268,7 @@ This section will provide guidance on creating a Docker image running a Oracle J
     </copy>
     ```
 
-6. Verify that the image was created by running this.
+8. Verify that the image was created by running this.
 
     ```
     <copy>
@@ -286,7 +278,7 @@ This section will provide guidance on creating a Docker image running a Oracle J
 You should see your new image "oddnumbers" in the list.
 &nbsp;
 
-7. Test the new docker image by running this command.
+9. Test the new docker image by running this command.
     ```
     <copy>
     sudo docker run oddnumbers
